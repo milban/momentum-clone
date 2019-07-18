@@ -37,7 +37,7 @@ function addTodo(text) {
 function paintTodo(text, id) {
   const li = document.createElement("li");
   const newId = id;
-  const delBtn = document.createElement("button");
+  const delBtn = document.createElement("div");
   delBtn.classList.add("toDo-del-btn");
   delBtn.innerText = "x";
   delBtn.addEventListener("click", deleteTodo);

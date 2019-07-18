@@ -11,6 +11,7 @@ const handleGeoSucces = position => {
     latitude,
     longitude
   };
+  console.log(locationObj);
   saveLocation(locationObj);
 };
 
