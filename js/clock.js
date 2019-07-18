@@ -20,7 +20,7 @@ function setTime() {
 }
 
 function plusZeroToFrontOfOneDigit(time) {
-  return time < 9 ? `0${time}` : time;
+  return time < 10 ? `0${time}` : time;
 }
 
 function convertTimeForm(converFunction, time) {

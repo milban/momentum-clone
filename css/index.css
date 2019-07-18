@@ -39,6 +39,7 @@ main {
 .greeting {
   display: none;
   font-size: 75px;
+  color: white;
 }
 
 .greeting {
