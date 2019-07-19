@@ -6,6 +6,20 @@ const TODOS_LS = "toDos";
 
 let toDos = [];
 
+function paintToDos() {
+  const todoNum = toDoList.childElementCount;
+  if (todoNum !== 0) {
+    toDoList.classList.add("showing");
+  }
+}
+
+function removeToDos() {
+  const todoNum = toDoList.childElementCount;
+  if (todoNum === 0) {
+    toDoList.classList.remove("showing");
+  }
+}
+
 function deleteTodo(event) {
   const btn = event.target;
   const li = btn.parentNode;
@@ -16,6 +30,7 @@ function deleteTodo(event) {
   });
   console.log(toDos);
   saveToDos();
+  removeToDos();
 }
 
 function saveToDos() {
@@ -47,13 +62,14 @@ function paintTodo(text, id) {
   li.appendChild(delBtn);
   li.id = newId;
   toDoList.appendChild(li);
+  paintToDos();
 }
 
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
   addTodo(currentValue);
-  paintTodo(currentValue, toDos[toDos.length - 1].id + 1);
+  paintTodo(currentValue, toDos[toDos.length - 1].id);
   saveToDos();
   toDoInput.value = "";
 }
@@ -66,6 +82,7 @@ function loadTodos() {
       toDos.push(toDo);
       paintTodo(toDo.text, toDo.id);
     });
+    paintToDos();
   }
 }
 

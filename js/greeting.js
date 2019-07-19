@@ -1,9 +1,14 @@
 const form = document.querySelector(".js-form");
+const toDoForm_greet = document.querySelector(".js-toDoForm");
 const input = form.querySelector("input");
 const greeting = document.querySelector(".js-greeting");
 
 const USER_LS = "currentUser";
 const SHOWING_CN = "showing";
+
+function paintToDoForm() {
+  toDoForm_greet.classList.add(SHOWING_CN);
+}
 
 function saveName(text) {
   localStorage.setItem(USER_LS, text);
@@ -14,6 +19,7 @@ function handleSubmit(event) {
   const currentValue = input.value;
   saveName(currentValue);
   paintGreeting(currentValue);
+  paintToDoForm();
 }
 
 function paintNameAskForm() {
@@ -33,6 +39,7 @@ function loadName() {
     paintNameAskForm();
   } else {
     paintGreeting(currentUser);
+    paintToDoForm();
   }
 }
 
